@@ -20,14 +20,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "vagrant-bootstrap.sh"
 
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 2048
     v.cpus = 2
   end
 
-  #set this ip also in the vagrant-bootstrap.sh file!
-  # config.vm.network "private_network", ip: "10.0.133.7"
-
-
+  
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -35,5 +32,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, host: 1337, guest: 9000
 
   #Debub port:
-  config.vm.network :forwarded_port, host: 6001, guest: 6001
+  #config.vm.network :forwarded_port, host: 6001, guest: 6001
 end
